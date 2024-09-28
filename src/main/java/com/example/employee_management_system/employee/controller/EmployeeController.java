@@ -26,29 +26,31 @@ public class EmployeeController {
     private EmployeeService employeeService;
 
     @GetMapping("/dashboard")
-    public String employeeDashboard(Model model) {
+    public String employeeDashboard(Authentication authentication, Model model) {
         logger.info("Accessed employee dashboard");
 
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        String username = auth.getName();
+        String username = authentication.getName();
+        Employee employee = employeeService.getEmployeeByEmail(username);
 
-        Employee employee = employeeService.getEmployeeByEmail(username)
-                .orElseThrow(() -> new ResourceNotFoundException("Employee not found"));
-
-        model.addAttribute("employee", employee);
+        if (employee != null) {
+            model.addAttribute("employee", employee);
+            logger.info("Employee data loaded for dashboard: " + employee.getFullName());
+        } else {
+            logger.warn("No employee found for username: " + username);
+        }
 
         return "employee/dashboard";
     }
-
-    @GetMapping("/me")
-    @ResponseBody
-    public ResponseEntity<Employee> getEmployeeDetails() {
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        String username = auth.getName();
-
-        Employee employee = employeeService.getEmployeeByEmail(username)
-                .orElseThrow(() -> new ResourceNotFoundException("Employee not found"));
-
-        return new ResponseEntity<>(employee, HttpStatus.OK);
-    }
+//
+//    @GetMapping("/me")
+//    @ResponseBody
+//    public ResponseEntity<Employee> getEmployeeDetails() {
+//        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+//        String username = auth.getName();
+//
+//        Employee employee = employeeService.getEmployeeByEmail(username)
+//                .orElseThrow(() -> new ResourceNotFoundException("Employee not found"));
+//
+//        return new ResponseEntity<>(employee, HttpStatus.OK);
+//    }
 }
