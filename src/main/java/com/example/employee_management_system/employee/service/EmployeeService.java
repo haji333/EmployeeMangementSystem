@@ -33,6 +33,10 @@ public class EmployeeService {
         return employeeRepository.save(employee);
     }
 
+//    public Optional<Employee> getEmployeeByEmailOrCode(String emailOrCode) {
+//        return employeeRepository.findByCompanyEmail(emailOrCode)
+//                .or(() -> employeeRepository.findByEmploymentCode(emailOrCode));
+//    }
 
     // Get all employees
     public List<Employee> getAllEmployees() {
@@ -45,8 +49,8 @@ public class EmployeeService {
         return employeeRepository.save(employee);
     }
 
-    public Optional<Employee> getEmployeeByEmail(String email) {
-        return employeeRepository.findByCompanyEmail(email);
+    public Employee getEmployeeByEmail(String email) {
+        return employeeRepository.findByCompanyEmail(email).orElse(null);
     }
 
     // Get employee by ID

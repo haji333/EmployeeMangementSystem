@@ -22,7 +22,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Employee employee = employeeRepository.findByCompanyEmail(username)
-                .orElseGet(() -> employeeRepository.findByEmploymentCode(username)
+                .orElseGet(() -> employeeRepository.findByCompanyEmail(username)
                         .orElseThrow(() -> new UsernameNotFoundException("User not found with username: " + username)));
 
         List<GrantedAuthority> authorities = Collections.singletonList(new SimpleGrantedAuthority("ROLE_" + employee.getRole().toUpperCase()));
