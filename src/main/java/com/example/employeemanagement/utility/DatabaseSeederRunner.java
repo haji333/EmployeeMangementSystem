@@ -54,95 +54,95 @@ public class DatabaseSeederRunner implements CommandLineRunner {
             userRepository.save(admin);
         }
 
-        // Check if Employee 1 exists
-        if (!userRepository.existsByEmploymentCode("000002")) {
-            User employee1 = new User();
-            employee1.setEmploymentCode("000002");
-            employee1.setUsername("employee1@company.com");
-            employee1.setPassword(passwordEncoder.encode("employee123"));
-            employee1.setRole(User.Role.ROLE_EMPLOYEE);
-            userRepository.save(employee1);
+        // // Check if Employee 1 exists
+        // if (!userRepository.existsByEmploymentCode("000002")) {
+        //     User employee1 = new User();
+        //     employee1.setEmploymentCode("000002");
+        //     employee1.setUsername("employee1@company.com");
+        //     employee1.setPassword(passwordEncoder.encode("employee123"));
+        //     employee1.setRole(User.Role.ROLE_EMPLOYEE);
+        //     userRepository.save(employee1);
 
-            PersonalDetails personalDetails1 = new PersonalDetails();
-            personalDetails1.setEmploymentCode("000002");
-            personalDetails1.setFullName("Employee One");
-            personalDetails1.setDateOfBirth(LocalDate.of(1990, 1, 1));
+        //     PersonalDetails personalDetails1 = new PersonalDetails();
+        //     personalDetails1.setEmploymentCode("000002");
+        //     personalDetails1.setFullName("Employee One");
+        //     personalDetails1.setDateOfBirth(LocalDate.of(1990, 1, 1));
 
-            personalDetails1.setGender(PersonalDetails.Gender.MALE);
-            personalDetails1.setAge(34);
-            personalDetails1.setCurrentAddressLine1("123 Main St");
-            personalDetails1.setCurrentCity("CityA");
-            personalDetails1.setCurrentPincode("123456");
-            personalDetails1.setPermanentAddressLine1("456 Secondary St");
-            personalDetails1.setPermanentCity("CityB");
-            personalDetails1.setPermanentPincode("654321");
-            personalDetails1.setMobile("1234567890");
-            personalDetails1.setPersonalEmail("employee1@personal.com");
-            personalDetails1.setEmergencyContactName("Emergency One");
-            personalDetails1.setEmergencyContactMobile("0987654321");
+        //     personalDetails1.setGender(PersonalDetails.Gender.MALE);
+        //     personalDetails1.setAge(34);
+        //     personalDetails1.setCurrentAddressLine1("123 Main St");
+        //     personalDetails1.setCurrentCity("CityA");
+        //     personalDetails1.setCurrentPincode("123456");
+        //     personalDetails1.setPermanentAddressLine1("456 Secondary St");
+        //     personalDetails1.setPermanentCity("CityB");
+        //     personalDetails1.setPermanentPincode("654321");
+        //     personalDetails1.setMobile("1234567890");
+        //     personalDetails1.setPersonalEmail("employee1@personal.com");
+        //     personalDetails1.setEmergencyContactName("Emergency One");
+        //     personalDetails1.setEmergencyContactMobile("0987654321");
 
-            personalDetailsRepository.save(personalDetails1);
+        //     personalDetailsRepository.save(personalDetails1);
 
-            ProfessionalDetails professionalDetails1 = new ProfessionalDetails();
-            professionalDetails1.setEmploymentCode("000002");
-            professionalDetails1.setCompanyEmail("employee1@company.com");
+        //     ProfessionalDetails professionalDetails1 = new ProfessionalDetails();
+        //     professionalDetails1.setEmploymentCode("000002");
+        //     professionalDetails1.setCompanyEmail("employee1@company.com");
 
-            professionalDetails1.setOfficePhone("1234567890");
-            professionalDetails1.setCity("CityA");
-            professionalDetails1.setOfficeAddressLine1("123 Main St");
-            professionalDetails1.setOfficePincode("123456");
-            professionalDetails1.setReportingManagerCode("000001");
-            professionalDetails1.setHrName("HR Admin");
-            professionalDetails1.setDateOfJoining(LocalDate.of(2022, 1, 1));
-            professionalDetails1.setReportingManagerName("Admin User");
+        //     professionalDetails1.setOfficePhone("1234567890");
+        //     professionalDetails1.setCity("CityA");
+        //     professionalDetails1.setOfficeAddressLine1("123 Main St");
+        //     professionalDetails1.setOfficePincode("123456");
+        //     professionalDetails1.setReportingManagerCode("000001");
+        //     professionalDetails1.setHrName("HR Admin");
+        //     professionalDetails1.setDateOfJoining(LocalDate.of(2022, 1, 1));
+        //     professionalDetails1.setReportingManagerName("Admin User");
 
-            professionalDetailsRepository.save(professionalDetails1);
-        }
+        //     professionalDetailsRepository.save(professionalDetails1);
+        // }
 
-        // Check if Employee 2 exists
-        if (!userRepository.existsByEmploymentCode("000003")) {
-            User employee2 = new User();
-            employee2.setEmploymentCode("000003");
-            employee2.setUsername("employee2@company.com");
-            employee2.setPassword(passwordEncoder.encode("employee123"));
-            employee2.setRole(User.Role.ROLE_EMPLOYEE);
-            userRepository.save(employee2);
+        // // Check if Employee 2 exists
+        // if (!userRepository.existsByEmploymentCode("000003")) {
+        //     User employee2 = new User();
+        //     employee2.setEmploymentCode("000003");
+        //     employee2.setUsername("employee2@company.com");
+        //     employee2.setPassword(passwordEncoder.encode("employee123"));
+        //     employee2.setRole(User.Role.ROLE_EMPLOYEE);
+        //     userRepository.save(employee2);
 
-            PersonalDetails personalDetails2 = new PersonalDetails();
-            personalDetails2.setEmploymentCode("000003");
-            personalDetails2.setFullName("Employee Two");
-            personalDetails2.setDateOfBirth(LocalDate.of(1992, 2, 2));
+        //     PersonalDetails personalDetails2 = new PersonalDetails();
+        //     personalDetails2.setEmploymentCode("000003");
+        //     personalDetails2.setFullName("Employee Two");
+        //     personalDetails2.setDateOfBirth(LocalDate.of(1992, 2, 2));
 
-            personalDetails2.setGender(PersonalDetails.Gender.FEMALE);
-            personalDetails2.setAge(32);
-            personalDetails2.setCurrentAddressLine1("789 Tertiary St");
-            personalDetails2.setCurrentCity("CityC");
-            personalDetails2.setCurrentPincode("112233");
-            personalDetails2.setPermanentAddressLine1("101 Quaternary St");
-            personalDetails2.setPermanentCity("CityD");
-            personalDetails2.setPermanentPincode("445566");
-            personalDetails2.setMobile("9876543210");
-            personalDetails2.setPersonalEmail("employee2@personal.com");
-            personalDetails2.setEmergencyContactName("Emergency Two");
-            personalDetails2.setEmergencyContactMobile("0123456789");
+        //     personalDetails2.setGender(PersonalDetails.Gender.FEMALE);
+        //     personalDetails2.setAge(32);
+        //     personalDetails2.setCurrentAddressLine1("789 Tertiary St");
+        //     personalDetails2.setCurrentCity("CityC");
+        //     personalDetails2.setCurrentPincode("112233");
+        //     personalDetails2.setPermanentAddressLine1("101 Quaternary St");
+        //     personalDetails2.setPermanentCity("CityD");
+        //     personalDetails2.setPermanentPincode("445566");
+        //     personalDetails2.setMobile("9876543210");
+        //     personalDetails2.setPersonalEmail("employee2@personal.com");
+        //     personalDetails2.setEmergencyContactName("Emergency Two");
+        //     personalDetails2.setEmergencyContactMobile("0123456789");
 
-            personalDetailsRepository.save(personalDetails2);
+        //     personalDetailsRepository.save(personalDetails2);
 
-            ProfessionalDetails professionalDetails2 = new ProfessionalDetails();
-            professionalDetails2.setEmploymentCode("000003");
-            professionalDetails2.setCompanyEmail("employee2@company.com");
+        //     ProfessionalDetails professionalDetails2 = new ProfessionalDetails();
+        //     professionalDetails2.setEmploymentCode("000003");
+        //     professionalDetails2.setCompanyEmail("employee2@company.com");
 
-            professionalDetails2.setOfficePhone("0987654321");
-            professionalDetails2.setCity("CityC");
-            professionalDetails2.setOfficeAddressLine1("789 Tertiary St");
-            professionalDetails2.setOfficePincode("112233");
-            professionalDetails2.setReportingManagerCode("000001");
-            professionalDetails2.setHrName("HR Admin");
-            professionalDetails2.setDateOfJoining(LocalDate.of(2023, 2, 1));
-            professionalDetails2.setReportingManagerName("Admin User");
+        //     professionalDetails2.setOfficePhone("0987654321");
+        //     professionalDetails2.setCity("CityC");
+        //     professionalDetails2.setOfficeAddressLine1("789 Tertiary St");
+        //     professionalDetails2.setOfficePincode("112233");
+        //     professionalDetails2.setReportingManagerCode("000001");
+        //     professionalDetails2.setHrName("HR Admin");
+        //     professionalDetails2.setDateOfJoining(LocalDate.of(2023, 2, 1));
+        //     professionalDetails2.setReportingManagerName("Admin User");
 
-            professionalDetailsRepository.save(professionalDetails2);
-        }
+        //     professionalDetailsRepository.save(professionalDetails2);
+        // }
 
         System.out.println("Database has been seeded with initial users, personal details, and professional details.");
     }
